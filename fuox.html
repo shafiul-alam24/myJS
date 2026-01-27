@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Opening a Gift Box</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background: #f0f8ff;
+    }
+    #giftBox {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      background: url('https://cdn-icons-png.flaticon.com/512/709/709496.png') no-repeat center;
+      background-size: contain;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    #giftBox.open {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/2913/2913464.png');
+      transform: rotate(15deg);
+    }
+    #message {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #d35400;
+      font-weight: bold;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Click the Gift Box to Open!</h1>
+
+  <div id="giftBox"></div>
+
+  <div id="message"></div>
+
+  <script>
+    const giftBox = document.getElementById('giftBox');
+    const message = document.getElementById('message');
+
+    giftBox.addEventListener('click', () => {
+      giftBox.classList.toggle('open');
+      if (giftBox.classList.contains('open')) {
+        message.textContent = "🎉 Surprise! You got a gift! 🎁";
+      } else {
+        message.textContent = "";
+      }
+    });
+  </script>
+
+</body>
+</html>
